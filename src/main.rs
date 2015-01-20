@@ -51,7 +51,7 @@ fn main() {
 
         match local_socket.recv_from(&mut buf) {
             Ok((amt, src)) => {
-                if proxy_src.is_some() {
+                if proxy_src.is_some() && src != proxy_src.unwrap() {
                     println!("WARNING: Received from new src while already bound, dropping.");
                     return
                 }
@@ -59,10 +59,10 @@ fn main() {
                 let buf = buf.slice_to_mut(amt);
                 if proxy_src.is_some() {
                     remote_socket.send_to(buf, dest_addr).ok();
-                    print!(" <--< ");
+                    print!(" >--> ");
                     print_u8(buf);
                 } else {
-                    print!(" X--< ");
+                    print!(" >--X ");
                     print_u8(buf);
                 }
                 proxy_src = Some(src);
