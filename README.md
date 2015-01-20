@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Azdle/dolos.svg)](https://travis-ci.org/Azdle/dolos)
+
 # Dolos
 Dolos is a UDP proxy and fuzzing tool. This repository currently contains a
 proof of concept that only performs the proxying without any fuzzing. The end
