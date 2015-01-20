@@ -3,3 +3,8 @@
 name = "dolos"
 version = "0.0.1"
 authors = ["Patrick Barrett <patrickbarrett@exosite.com>"]
+
+[dependencies]
+docopt = "*"
+docopt_macros = "*"
+rustc-serialize = "*"
