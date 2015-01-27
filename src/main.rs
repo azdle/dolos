@@ -56,7 +56,7 @@ fn main() {
                     return
                 }
                 // Send a reply to the socket we received data from
-                let buf = buf.slice_to_mut(amt);
+                let buf = &mut buf[.. amt];
                 if proxy_src.is_some() {
                     remote_socket.send_to(buf, dest_addr).ok();
                     print!(" >--> ");
@@ -74,7 +74,7 @@ fn main() {
         match remote_socket.recv_from(&mut buf) {
             Ok((amt, _src)) => {
                 // Send a reply to the socket we received data from
-                let buf = buf.slice_to_mut(amt);
+                let buf = &mut buf[.. amt];
                 if proxy_src.is_some() {
                     local_socket.send_to(buf, proxy_src.unwrap()).ok();
                     print!(" <--< ");
