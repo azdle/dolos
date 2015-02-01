@@ -1,15 +1,14 @@
-#![feature(slicing_syntax)]
 #![feature(plugin)]
-#![allow(unstable)]
+#![feature(io)]
 
 extern crate "rustc-serialize" as rustc_serialize;
 
 extern crate docopt;
 #[plugin] #[no_link] extern crate docopt_macros;
 
-use std::io::net::udp::UdpSocket;
-use std::io::net::ip::{Ipv4Addr, SocketAddr};
-use std::io::{IoError, IoErrorKind};
+use std::old_io::net::udp::UdpSocket;
+use std::old_io::net::ip::{Ipv4Addr, SocketAddr};
+use std::old_io::{IoError, IoErrorKind};
 
 docopt!(Args derive Show, "
 Usage: dolos [options] [<srcip>] <srcport> <dstip> <dstport>
