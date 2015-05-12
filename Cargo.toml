@@ -6,5 +6,4 @@ authors = ["Patrick Barrett <pat@theunlink.com>"]
 
 [dependencies]
 docopt = "*"
-docopt_macros = "*"
 rustc-serialize = "*"
