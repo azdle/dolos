@@ -82,6 +82,8 @@ fn main() {
                         local_socket.try_clone().ok().expect("couldn't clone lsock"),
                         remote_socket.try_clone().ok().expect("couldn't clone rsock"),
                         proxy_src.unwrap());
+
+                    proxy_src = Some(src);
                 }
                 // Send a reply to the socket we received data from
                 let buf = &mut buf[.. amt];
@@ -93,7 +95,6 @@ fn main() {
                     print!(" >--X ");
                     print_u8(buf);
                 }
-                proxy_src = Some(src);
             },
             Err(e) => println!("couldn't receive a datagram: {}", e)
         }
