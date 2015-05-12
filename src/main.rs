@@ -87,14 +87,9 @@ fn main() {
                 }
                 // Send a reply to the socket we received data from
                 let buf = &mut buf[.. amt];
-                if proxy_src.is_some() {
-                    remote_socket.send_to(buf, dest_addr).ok();
-                    print!(" >--> ");
-                    print_u8(buf);
-                } else {
-                    print!(" >--X ");
-                    print_u8(buf);
-                }
+                remote_socket.send_to(buf, dest_addr).ok();
+                print!(" >--> ");
+                print_u8(buf);
             },
             Err(e) => println!("couldn't receive a datagram: {}", e)
         }
