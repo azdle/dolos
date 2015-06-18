@@ -1,1 +1,2 @@
-language: rust-nightly
+language: rust
+rust: nightly
