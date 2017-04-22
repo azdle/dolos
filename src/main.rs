@@ -1,5 +1,3 @@
-#![feature(ip_addr, convert, core)] 
-
 extern crate rustc_serialize;
 extern crate docopt;
 extern crate core;
